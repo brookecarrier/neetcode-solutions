@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool isPalindrome(string s) {
+        // base case
+        if (s.length() == 1) return true;
+
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left <= right) {
+            if (!isalnum(s[left])) left++;
+            else if (!isalnum(s[right])) right--;
+            else if (tolower(s[left]) == tolower(s[right])) {
+                left++;
+                right--;
+            } else return false;
+        }
+        return true;
+    }        
+};
+
